@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const authRouter = require('./routes/authRoutes');
 require('dotenv').config();
 
 const { PORT } = process.env;
@@ -11,8 +12,6 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
-app.get('/', (req, res) => {
-  res.json('testing');
-});
+app.use('/auth', authRouter);
 
 app.listen(PORT, console.log(`server is running on port ${PORT}`));
