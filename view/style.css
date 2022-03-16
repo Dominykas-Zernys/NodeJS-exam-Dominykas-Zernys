@@ -73,6 +73,14 @@ input {
   font-weight: bold;
 }
 
+.red-text {
+  color: red;
+}
+
+.green-text {
+  color: green;
+}
+
 /* Bills */
 
 .bills-title {

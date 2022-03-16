@@ -40,7 +40,7 @@ const Joi = require('joi');
 
 async function validateUserRegister(req, res, next) {
   const schema = Joi.object({
-    fullName: Joi.string().required(),
+    fullName: Joi.string().min(3).required(),
     email: Joi.string().email().required(),
     password: Joi.string().alphanum().min(5).max(30).required(),
   });
