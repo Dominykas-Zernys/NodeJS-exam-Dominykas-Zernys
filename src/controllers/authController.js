@@ -4,6 +4,7 @@ const {
   successResponse,
   hashPassword,
   verifyPassword,
+  createJWToken,
 } = require('../helper');
 const { addUserToDatabase, findUserByEmail } = require('../models/authModel');
 
@@ -32,7 +33,8 @@ async function loginUser(req, res) {
     failResponse(res);
     return;
   }
-  successResponse(res, 'user logged in successfully');
+  const userToken = createJWToken(foundUser.id);
+  successResponse(res, userToken);
 }
 
 module.exports = { registerUser, loginUser };
