@@ -21,30 +21,19 @@
                 <th>Description</th>
                 <th>Amount</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>For paper</td>
-                <td>$12</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>For electricity</td>
-                <td>$40</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>For the car</td>
-                <td>$500</td>
-            </tr>
         </table>
         <div class="form-wrapper">
             <h2>Add bill</h2>
             <form action="" id="bill-form">
                 <label>Amount:</label>
-                <input type="email" id="email-input">
+                <input type="number" id="amount-input">
                 <label>Description:</label>
-                <input type="password" id="password-input">
-                <button class="submit-button">Add</button>
+                <input type="text" id="description-input">
+                <div>
+                    <button class="submit-button">Add</button>
+                    <span class="red-text" id="error-text"></span>
+                    <span class="green-text" id="success-text"></span>
+                </div>
             </form>
         </div>
     </main>

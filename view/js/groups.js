@@ -12,7 +12,8 @@ async function getGroupsFromDb() {
   });
   const resInJson = await res.json();
   if (!resInJson.success) {
-    groupsWrapper.innerHTML = '<h1 class="red-text">Something went wrong</h1>';
+    groupsWrapper.innerHTML =
+      '<h1 class="red-text">To see your groups please <a href="login.html">login</a></h1>';
     return;
   }
   return resInJson.data;
@@ -22,7 +23,7 @@ async function createGroupCards() {
   const groups = await getGroupsFromDb();
   groups.forEach((group) => {
     const groupCard = document.createElement('a');
-    groupCard.href = '#';
+    groupCard.href = 'bills.html?groupId=' + group.id;
     groupCard.classList.add('group-card');
     groupCard.innerHTML = `<h2 class='group-id'>ID: ${group.id}</h2>
     <p class='group-description'>${group.name}</p>`;
