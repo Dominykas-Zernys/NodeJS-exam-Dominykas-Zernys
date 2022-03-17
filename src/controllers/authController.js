@@ -25,12 +25,12 @@ async function registerUser(req, res) {
 async function loginUser(req, res) {
   const foundUser = await findUserByEmail(req.body.email);
   if (!foundUser) {
-    failResponse(res);
+    failResponse(res, ['Email or password is incorrect']);
     return;
   }
   verifyPassword(req.body.password, foundUser.password);
   if (!verifyPassword(req.body.password, foundUser.password)) {
-    failResponse(res);
+    failResponse(res, ['Email or password is incorrect']);
     return;
   }
   const userToken = createJWToken(foundUser.id);

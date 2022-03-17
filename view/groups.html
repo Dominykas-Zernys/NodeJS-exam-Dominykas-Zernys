@@ -16,17 +16,17 @@
     <main>
         <h1 class="groups-title">Select Your Group</h1>
         <section class="groups-wrapper">
-            <div class="group-card">
-                <h2 class="group-id">ID: 2</h2>
-                <p class="group-description">Our trip to SF</p>
-            </div>
         </section>
         <div class="form-wrapper">
             <h2>Add group</h2>
             <form action="" id="group-form">
                 <label>Group ID:</label>
                 <input type="text" id="group-id-input">
-                <button class="submit-button">Add</button>
+                <div>
+                    <button class="submit-button">Add</button>
+                    <span class="red-text" id="error-text"></span>
+                    <span class="green-text" id="success-text"></span>
+                </div>
             </form>
         </div>
     </main>

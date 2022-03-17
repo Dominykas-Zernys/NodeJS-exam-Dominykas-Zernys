@@ -62,7 +62,8 @@ async function validateUserLogin(req, res, next) {
     await schema.validateAsync(req.body, { abortEarly: false });
     next();
   } catch (error) {
-    res.status(400).json({ success: false, data: error[0] });
+    const errorArr = error.details.map((errorDetail) => errorDetail.message);
+    res.status(400).json({ success: false, data: errorArr });
   }
 }
 

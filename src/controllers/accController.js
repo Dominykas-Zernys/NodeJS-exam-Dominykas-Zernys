@@ -5,6 +5,7 @@ async function getAccounts(req, res) {
   const foundAccounts = await getAccountsFromDb(req.userId);
   if (!foundAccounts) {
     failResponse(res);
+    return;
   }
   successResponse(res, foundAccounts);
 }
@@ -14,6 +15,7 @@ async function postAccount(req, res) {
   const postedAcc = await addNewAccToDb(newAccountObj);
   if (!postedAcc) {
     failResponse(res);
+    return;
   }
   successResponse(res, 'new account created');
 }
