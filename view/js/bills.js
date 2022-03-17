@@ -6,6 +6,7 @@ const amountInput = document.getElementById('amount-input');
 const descriptionInput = document.getElementById('description-input');
 const errorText = document.getElementById('error-text');
 const successText = document.getElementById('success-text');
+const logoutButton = document.getElementById('logout-button');
 
 // creating bills table
 
@@ -63,3 +64,10 @@ async function createNewBill(amount, description) {
   const resInJson = await res.json();
   return resInJson;
 }
+
+// logout
+
+logoutButton.addEventListener('click', () => {
+  localStorage.removeItem('token');
+  location.replace('login.html');
+});

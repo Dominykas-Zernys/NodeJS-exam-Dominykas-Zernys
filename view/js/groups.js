@@ -3,6 +3,7 @@ const groupForm = document.getElementById('group-form');
 const idInput = document.getElementById('group-id-input');
 const errorText = document.getElementById('error-text');
 const successText = document.getElementById('success-text');
+const logoutButton = document.getElementById('logout-button');
 
 // Group cards functions
 
@@ -13,13 +14,19 @@ async function getGroupsFromDb() {
   const resInJson = await res.json();
   if (!resInJson.success) {
     groupsWrapper.innerHTML =
-      '<h1 class="red-text">To see your groups please <a href="login.html">login</a></h1>';
+      '<h1 class="login-groups-text">To see your groups, please <a href="login.html">login</a></h1>';
     return;
   }
   return resInJson.data;
 }
 
 async function createGroupCards() {
+  if (!localStorage.getItem('token')) {
+    groupsWrapper.innerHTML =
+      '<h1 class="login-groups-text">To see your groups, please <a href="login.html">login</a></h1>';
+    return;
+    return;
+  }
   const groups = await getGroupsFromDb();
   groups.forEach((group) => {
     const groupCard = document.createElement('a');
@@ -62,3 +69,10 @@ async function addGroup(groupId) {
   const resInJson = await res.json();
   return resInJson;
 }
+
+// logout
+
+logoutButton.addEventListener('click', () => {
+  localStorage.removeItem('token');
+  location.reload();
+});

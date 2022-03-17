@@ -5,6 +5,14 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: rgb(36, 134, 158);
+}
+
+button {
+  cursor: pointer;
+}
+
 header {
   width: 100%;
   text-align: center;
@@ -41,6 +49,21 @@ h1 {
   color: rgb(56, 56, 56);
 }
 
+.header-button {
+  position: absolute;
+  top: 0px;
+}
+
+.logout-button {
+  right: 20px;
+}
+
+@media only screen and (max-width: 425px) {
+  header {
+    padding-top: 25px;
+  }
+}
+
 /* forms */
 
 .form-wrapper {
@@ -71,6 +94,20 @@ input {
   align-self: flex-start;
   font-size: 15px;
   font-weight: bold;
+  background-color: rgb(198, 209, 221);
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: rgb(67, 129, 196);
+  color: aliceblue;
+}
+
+.submit-button:active {
+  background-color: rgb(26, 26, 27);
+  color: aliceblue;
 }
 
 .red-text {
@@ -79,6 +116,16 @@ input {
 
 .green-text {
   color: green;
+}
+
+@media only screen and (max-width: 425px) {
+  .form-wrapper {
+    width: 90%;
+  }
+
+  .logreg-button {
+    width: 100%;
+  }
 }
 
 /* Bills */
@@ -133,4 +180,31 @@ th {
 .group-id,
 .group-description {
   margin: 0;
+}
+
+.login-groups-text {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .groups-wrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .groups-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .groups-wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
 }
